@@ -68,12 +68,9 @@ fun PlayMinecraftScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        val versions = listOf(
-            Triple("26.2", "Release", true),
-            Triple("26.1", "Release", false),
-            Triple("25.4", "Release", false),
-            Triple("26.3-pre1", "Pre-release", false),
-        )
+        val versions = MINECRAFT_VERSIONS.mapIndexed { index, version ->
+            Triple(version, if (version.startsWith("26")) "Game Drop" else "Release", index == 0)
+        }
 
         versions.forEach { (version, type, current) ->
             VersionRow(
