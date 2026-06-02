@@ -99,11 +99,11 @@ fun SettingsScreen(
         Spacer(modifier = Modifier.height(1.dp))
 
         SettingsDropdown(
-            label = "Server Version",
-            value = settings.serverVersion,
-            options = listOf("26.2", "26.1", "25.4"),
-            onSelect = { settingsViewModel.setServerVersion(it) },
-            modifier = Modifier.padding(horizontal = 20.dp)
+             label = "Server Version",
+             value = settings.serverVersion,
+             options = getVersionsForSoftware(settings.serverSoftware),
+             onSelect = { settingsViewModel.setServerVersion(it) },
+             modifier = Modifier.padding(horizontal = 20.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
